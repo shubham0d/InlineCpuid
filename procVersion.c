@@ -23,10 +23,36 @@ int outputEax(){
     printf("\nFamily ID:%d%d%d%d",binaryNum[11],binaryNum[10],binaryNum[9],binaryNum[8]);
     printf("\nProcessor Type:%d%d",binaryNum[13],binaryNum[12]);
     printf("\nExtended Model ID:%d%d%d%d",binaryNum[19],binaryNum[18],binaryNum[17],binaryNum[16]);
-    printf("\nExtended Family ID:%d%d%d%d",binaryNum[27],binaryNum[26],binaryNum[25],binaryNum[24],binaryNum[23],binaryNum[22],binaryNum[21],binaryNum[20]);
+    printf("\nExtended Family ID:%d%d%d%d%d%d%d%d",binaryNum[27],binaryNum[26],binaryNum[25],binaryNum[24],binaryNum[23],binaryNum[22],binaryNum[21],binaryNum[20]);
     printf("\n");
     return 0;
 
+}
+
+int outputEbx(){
+    printf("-------Additional Feature Info(EBX register):-------");
+    printf("\nBrand index:%d%d%d%d%d%d%d%d",binaryNum[7],binaryNum[6],binaryNum[5],binaryNum[4], binaryNum[3], binaryNum[2], binaryNum[1], binaryNum[0]);
+    printf("\nCFLUSH line size:%d%d%d%d%d%d%d%d",binaryNum[15],binaryNum[14],binaryNum[13],binaryNum[12],binaryNum[11],binaryNum[10],binaryNum[9],binaryNum[8]);
+    printf("\nAddressable ID:%d%d%d%d%d%d%d%d",binaryNum[23],binaryNum[22],binaryNum[21],binaryNum[20],binaryNum[19],binaryNum[18],binaryNum[17],binaryNum[16]);
+    printf("\nLocal APIC ID:%d%d%d%d%d%d%d%d",binaryNum[31],binaryNum[30],binaryNum[29],binaryNum[28],binaryNum[27],binaryNum[26],binaryNum[25],binaryNum[24]);
+    return 0;
+
+}
+
+int outputEcx(){
+    printf("Features Info(ECX)");
+    for (i=31;i>=0;i--){
+        printf("%d",binaryNum[i]);
+    }
+    return 0;
+}
+
+int outputEcx(){
+    printf("Features Info(EDX)");
+    for (i=31;i>=0;i--){
+        printf("%d",binaryNum[i]);
+    }
+    return 0;
 }
 
 void getCpuID()
@@ -46,6 +72,8 @@ void getCpuID()
 		//__asm__("mov %%al, %0\n\t":"=r" (sysType[0]));
         decToBinary(a[0]);
 	    outputEax();
+        decToBinary(a[1]);
+        outputEbx();
 }
 
 
