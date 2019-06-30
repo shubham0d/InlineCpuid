@@ -35,23 +35,29 @@ int outputEbx(){
     printf("\nCFLUSH line size:%d%d%d%d%d%d%d%d",binaryNum[15],binaryNum[14],binaryNum[13],binaryNum[12],binaryNum[11],binaryNum[10],binaryNum[9],binaryNum[8]);
     printf("\nAddressable ID:%d%d%d%d%d%d%d%d",binaryNum[23],binaryNum[22],binaryNum[21],binaryNum[20],binaryNum[19],binaryNum[18],binaryNum[17],binaryNum[16]);
     printf("\nLocal APIC ID:%d%d%d%d%d%d%d%d",binaryNum[31],binaryNum[30],binaryNum[29],binaryNum[28],binaryNum[27],binaryNum[26],binaryNum[25],binaryNum[24]);
+    printf("\n");
     return 0;
 
 }
 
 int outputEcx(){
-    printf("Features Info(ECX)");
+    int i;
+    printf("\n");
+    printf("Features Info(ECX):");
     for (i=31;i>=0;i--){
         printf("%d",binaryNum[i]);
     }
+    printf("\n");
     return 0;
 }
 
-int outputEcx(){
-    printf("Features Info(EDX)");
+int outputEdx(){
+    int i;
+    printf("Features Info(EDX):");
     for (i=31;i>=0;i--){
         printf("%d",binaryNum[i]);
     }
+    printf("\n");
     return 0;
 }
 
@@ -74,6 +80,10 @@ void getCpuID()
 	    outputEax();
         decToBinary(a[1]);
         outputEbx();
+        decToBinary(a[2]);
+        outputEcx();
+        decToBinary(a[3]);
+        outputEdx();
 }
 
 
