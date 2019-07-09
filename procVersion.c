@@ -1,7 +1,7 @@
 #include<stdio.h>
 
+// with eax = 1
 int binaryNum[32];
-
 void decToBinary(int n)
 {
     // counter for binary array
@@ -52,7 +52,7 @@ int outputEcx(){
 }
 
 int outputEdx(){
-    int i;
+    int i=0;
     printf("Features Info(EDX):");
     for (i=31;i>=0;i--){
         printf("%d",binaryNum[i]);
