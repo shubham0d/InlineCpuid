@@ -1,4 +1,5 @@
 #include<stdio.h>
+//return brand string 
 int a[10];
 void brandString(int eaxValues)
 {
