@@ -32,29 +32,22 @@ void getCpuID()
 	    __asm__("xor %ebx , %ebx\n\t");
 	    __asm__("xor %ecx , %ecx\n\t");
 	    __asm__("xor %edx , %edx\n\t");
-		__asm__("mov $0x2 , %eax\n\t");
+		__asm__("mov $0x7 , %eax\n\t");
+        __asm__("mov $0 , %ecx\n\t");
 		__asm__("cpuid\n\t");
 		//MOV EBX to EAX and get the chars one by one by using shift out right bitwise operation.
-		__asm__("mov %%eax, %0\n\t":"=r" (a[0])); //gives model and family
-		__asm__("mov %%ebx, %0\n\t":"=r" (a[1])); //gives additional feature info
-		__asm__("mov %%ecx, %0\n\t":"=r" (a[2])); //feature flags
-		__asm__("mov %%edx, %0\n\t":"=r" (a[3])); //feature flags
-		//__asm__("mov %%al, %0\n\t":"=r" (sysType[0]));
-		//printf ("no of times %d", a[0]);
-		//printer();
+		__asm__("mov %%ebx, %0\n\t":"=r" (a[0])); //gives model and family
+		__asm__("mov %%ecx, %0\n\t":"=r" (a[1])); //gives additional feature info
+		__asm__("mov %%edx, %0\n\t":"=r" (a[2])); //feature flags
         decToBinary(a[0]);
-        printf ("Output from EAX:");
-        printer();
-        decToBinary(a[1]);
         printf ("Output from EBX:");
         printer();
-        decToBinary(a[2]);
+        decToBinary(a[1]);
         printf ("Output from ECX:");
         printer();
-        decToBinary(a[3]);
+        decToBinary(a[2]);
         printf ("Output from EDX:");
         printer();
-
 
 
 }
